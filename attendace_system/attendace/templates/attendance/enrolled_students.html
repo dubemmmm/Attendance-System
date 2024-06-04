@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Enrollments</title>
+    <link rel="stylesheet" href="{% static 'attendace/css/enroll_students.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manage Enrollments for <span id="course-title">{{ course.course_title }}</span></h1>
+        </header>
+        <main>
+            <section class="students-list">
+                <h2>Enrolled Students</h2>
+                <ul id="students">
+                    {% for student in students %}
+                        <li>
+                            {{ student.username }} - {{ student.email }}
+                            <form action="{% url 'attendace:unenroll-student' course.id student.studentprofile.student_id %}" method="POST" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="unenroll-button"><i class="fas fa-user-minus"></i> Unenroll</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </main>
+    </div>
+    <a href={% url 'attendace:teacher-dashboard' %}>back</a>
+</body>
+</html>
