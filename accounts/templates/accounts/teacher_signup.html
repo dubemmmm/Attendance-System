@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href={% static 'accounts/css/style.css'%}>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+	<div class="form-container sign-in-container">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <h1>TEACHER ACCOUNT</h1>
+        
+      
+        <input type="text" name="username" id="id_username" class="form__input" placeholder="Username" required autofocus>
+        {% if form.username.errors %}
+            <div class="error">{{ form.username.errors }}</div>
+        {% endif %}
+        <input type="email" name="email" id="id_email" class="form__input" placeholder="Email Address" required>
+        {% if form.email.errors %}
+            <div class="error">{{ form.email.errors }}</div>
+        {% endif %}
+        <input class="form__input" type="password" name="password1" id="id_password1" placeholder="Password" minlength="8" required>
+        {% if form.password1.errors %}
+            <div class="error">{{ form.password1.errors }}</div>
+        {% endif %}
+        <input class="form__input" type="password" name="password2" id="id_password2" placeholder="Confirm Password" minlength="8" required>
+        {% if form.password2.errors %}
+            <div class="error">{{ form.password2.errors }}</div>
+        {% endif %}
+        <input type="file" name="encoding" id="id_encoding" class="form__input" required>
+        {% if form.encoding.errors %}
+            <div class="error">{{ form.encoding.errors }}</div>
+        {% endif %}
+        
+		  <a href="#">Forgot your password?</a>
+          <button>SIGN IN</button>
+          <p style='padding-top:10px;'>Already have an account?<a href={% url 'accounts:teacher-login' %} style='font-size:12px; color:#4CAF50;'> Login</a></p>
+    </form>
+	</div>
+
+	<div class="overlay-container" id="oVER">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+			<h1>Welcome Back!</h1>
+            <p>
+                Focus on work that matterss
+            </p>
+            
+            <a href={% url 'accounts:student-signup' %}><button class="ghost" id="signUp">Not a Teacher?</button>
+        </div>
+    </div>
+	</div>
+</div>
+</body>
+</html>
+
+
+      
