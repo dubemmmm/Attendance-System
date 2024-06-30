@@ -102,20 +102,12 @@ def take_attendance(img_names, img_encodings):
     # Release the camera and close all windows
     video_capture.release()
     cv2.destroyAllWindows()
-    
-def count_files_in_directory(directory):
-    file_count = 0
-    for root, dirs, files in os.walk(directory):
-        file_count += len(files)
-    return file_count
+
 
 
     
 def main():
     print('running the predict script...')
-    directory_path = '/Users/chidubemonwuchuluba/Desktop/djangostuff/attendace_system/'
-    print(f"Number of files in directory: {count_files_in_directory(directory_path)}")
-
     img_names = []
     img_encodings = []
     course = get_object_or_404(Course, id=18)
