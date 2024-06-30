@@ -1,0 +1,77 @@
+<!--<h1>Successfully logged in {{user.username}}</h1>
+<h1>Created courses </h1>
+{%for course in courses%}
+<h2>{{course.course_code}}</h2>
+{% endfor %}
+<a href = {% url 'attendace:create-course' %}>Create a course </a><br>
+<a href={% url 'logout' %}>Logout</a>-->
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% load custom_filters %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{% static 'attendace/css/teacher-dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <style>
+        /* Style for anchor tags */
+        a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Use the default text color */
+        }
+    </style>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Dashboard</h2>
+            <button class="toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <ul class="nav-links">
+            
+            <li><a href="{% url 'attendace:teacher-dashboard' %}"><i class="fas fa-book"></i> Courses</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Students</a></li>
+            <li><a href="{% url 'attendace:update-profile' %}"><i class="fas fa-users"></i> Profile</a></li>    
+            <li><a href="#" id='logout-link'><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content" id="main-content">
+        <header>
+            <h1 style='padding-left:500px;'>Welcome, Teacher</h1>
+            <div class="header-actions">
+                <a href="{% url 'attendace:create-course' %}" class="create-course-button">Create New Course</a>
+                
+            </div>
+        </header>
+        <main>
+            <h2>Your Courses</h2>
+            <div class="courses">
+            {% for course in courses %}
+                <div class="course-card">
+                    <a href = {% url 'attendace:course-detail' course.id%}><h3>{{course.course_title}}</h3></a>
+                    <h4>{{course.course_code}}</a></h4>
+                    <p>{{ course.description|first_sentence }}</p>
+                    <p><strong>Students Enrolled:</strong> <a href={% url 'attendace:enrolled-students' course.id%}>{{course.students.count}}</a></p>
+                </div>
+                {% endfor %} 
+            </div>
+        </main>
+    </div>
+    <script>
+        document.getElementById('logout-link').addEventListener('click', function(event){
+            console.log('the logout button was clicked');
+            event.preventDefault(); //To prevent the default action 
+            var logouturl = "{% url 'logout' %}";
+            if (confirm('Are yoou sure you want to log out')){
+                window.location.href = logouturl
+            }
+        });
+    </script>
+   
+</body>
+</html>

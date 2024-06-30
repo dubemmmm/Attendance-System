@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Enrollments</title>
+    <link rel="stylesheet" href="{% static 'attendace/css/enroll_students.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <style>
+        .enroll-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .enroll-button:hover {
+            background-color: #45a049;
+        }
+        .student {
+            text-decoration: none;
+            color: inherit;
+        }
+        .student:hover{
+            cursor: pointer;
+            text-decoration: underline;
+           
+        }
+        
+    </style>
+    <div class="container">
+        <header>
+            <h1>Manage Enrollments for <span style='color:green;'id="course-title">{{ course.course_title }}</span></h1>
+        </header>
+        <main>
+            <section class="students-list">
+                <h2>Enrolled Students</h2>
+                
+                <ul id="students">
+                    {% for student in students %}
+                        <li>
+                            
+                            <a class='student' href={% url 'attendace:student-profile' student_id=student.studentprofile.student_id %}><h3>{{ student.username }}</h3></a>  <h4>{{ student.email }}</h4>
+                            <form action="{% url 'attendace:unenroll-student' course.id student.studentprofile.student_id %}" method="POST" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="unenroll-button"><i class="fas fa-user-minus"></i> Unenroll</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div style='text-align: center; padding-top:10px;'><a href={% url 'attendace:teacher-dashboard' %}><button class='enroll-button'>Back</button></a></div>
+            </section>
+        </main>
+    </div>
+    
+</body>
+</html>

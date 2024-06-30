@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href={% static 'attendace/css/teacher-dashboard2.css' %}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    {% if user.is_authenticated %}
+        {% if user.is_student %}
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Dashboard</h2>
+            <button class="toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="{% url 'attendace:student-dashboard' %}"><i class="fas fa-book"></i> Enrolled Courses</a></li>
+            <li><a href="{% url 'attendace:available-courses' %}"><i class="fas fa-users"></i> Available Courses</a></li>
+            <li><a href="{% url 'attendace:update-profile' %}"><i class="fas fa-users"></i> Profile</a></li>    
+            <li><a href="#" id='logout-link'><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+    {% else %}
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Dashboard</h2>
+            <button class="toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'attendace:teacher-dashboard' %}"><i class="fas fa-book"></i> Courses</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Students</a></li>
+            <li><a href="{% url 'attendace:update-profile' %}"><i class="fas fa-users"></i> Profile</a></li> 
+            <li><a href="#" id='logout-link'><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+    {% endif %}
+    
+    <div class="main-content" id="main-content">
+        <header>
+            <h1 class="header-student-profile-page">Profile Page</h1>
+        </header>
+        <main>
+            <div class="profile-container">
+                <div class="profile-box">
+                    <div class="profile-image">
+                        <img src="{{ user_profile.image.url }}" alt="Profile Image" id="profile-image">
+                        <label for="image-upload" class="image-upload-label">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="image-upload" accept="image/*">
+                    </div>
+                    <h1 id="username">{{ user.username }}</h1>
+                    <p id="email">{{ user.email }}</p>
+                    
+                    <form action="{% url 'attendace:update-profile' %}" method="post" class="profile-form" id="profile-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" name="first_name" value="{{ user.first_name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" name="last_name" value="{{ user.last_name }}">
+                        </div>
+                        <button type="submit" class="update-button">Save Profile</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    {% endif %}
+    <script>
+        document.getElementById('logout-link').addEventListener('click', function(event){
+            console.log('the logout button was clicked');
+            event.preventDefault(); //To prevent the default action 
+            var logouturl = "{% url 'logout' %}";
+            if (confirm('Are yoou sure you want to log out')){
+                window.location.href = logouturl
+            }
+        });
+    </script>
+   
+</body>
+</html>

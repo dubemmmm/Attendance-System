@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href={% static 'attendace/css/teacher-dashboard2.css' %}>
+    </head>
+    <body>
+        <style>
+            .enroll-button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                font-size: 1em;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .enroll-button:hover {
+                background-color: #45a049;
+            }
+        </style>
+        <div class="profile-container">
+            <div class="profile-box">
+                <div class="profile-image">
+                    <img src="{{profile_image}}" alt="Profile Image" id="profile-image">
+                    <label for="image-upload" class="image-upload-label">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="image-upload" accept="image/*">
+                </div>
+                <h1 id="username">{{user.username}}</h1>
+                <p id="email">{{user.email}}</p>
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <h3>{{user.first_name}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <h3>{{user.last_name}}</h3>
+                </div>
+                
+               
+                <button class='enroll-button' onclick="goBack()">Back</button>
+            </div>
+        </div>
+        
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </body>
+</html>
