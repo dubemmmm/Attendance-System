@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Attendance App</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/support.css'%}">
+    <script defer src={% static 'accounts/js/support.js'%}></script>
+    <style>
+        .back-button {
+            background-color: transparent;
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 1.5em;
+            display: flex;
+            
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+        
+        .back-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <div class="content-box">
+            <a href={% url 'landing' %} class="back-button"><i class="fas fa-arrow-left"></i> Back to Landing</a>
+            <h1 style='text-align: center;'>Support</h1>
+            
+            <p>If you need assistance, please contact our support team:</p>
+            <ul>
+                <li>Email: <a href="mailto:onwuchulubachidubem@gmail.com">onwuchulubachidubem@gmail.com</a></li>
+                <li>Phone: <a href="tel:+2349129081066">+2349129081066</a></li>
+                <li>GitHub: <a href="https://github.com/dubemmmm" target="_blank">dubemmmm</a></li>
+            </ul>
+            <h2 style='text-align: center;'>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <h3 style='color:black;'class="faq-question">1. How do I enroll in a course? <span class="arrow">&#9660;</span></h3>
+                    <div class="faq-answer">
+                        <p>To enroll in a course, navigate to the 'Available Courses' section, select the course you want to enroll in, and click the 'Enroll' button.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 style='color:black;' class="faq-question">2. How do I use facial recognition to take attendance? <span class="arrow">&#9660;</span></h3>
+                    <div class="faq-answer">
+                        <p>The Face recogntion model takes the individual student face encodings when creating the student account. When a student captures an image, if the encoding matches the encoding of a student enrolled under the course, the student is marked present</p>
+                    </div>
+                </div>
+                <!-- Add more FAQ items as needed -->
+            </div>
+            <h2 style='text-align: center;'>Contact Form</h2>
+            <form id="contact-form" method="post" action="{% url 'contact-support' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div style="text-align: center; padding-bottom:10px;">
+                    <button type="submit" class="submit-button" style=''>Send Message</button>
+                </div>
+                
+            </form>
+            {% if success_message %}
+            <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; padding: 10px; text-align:center;" class="alert alert-success">{{ success_message }}</div>
+        
+            {% endif %}
+            {% if error_message %}
+            <div class="alert alert-danger" style="background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; padding: 10px; text-align:center;">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
