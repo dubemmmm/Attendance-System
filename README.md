@@ -98,7 +98,7 @@ python manage.py runserver
 ![Attendance Marking](screenshots/2i.png)
 *Real-time attendance marking interface*
 
-[Add your screenshots in the screenshots folder of your repository]
+
 </details>
 
 ## 🎥 Demo
@@ -129,13 +129,11 @@ Watch the system in action: [Video Demo](https://drive.google.com/file/d/1yBry3-
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## 👥 Contact
 - GitHub: [Your GitHub Profile](https://lnkd.in/gw2XgxJf)
-- Email: [Your Email]
-- LinkedIn: [Your LinkedIn Profile]
+- Email: [Your Email](onwuchulubachidubem@gmail.com)
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/chidubem-onwuchuluba-787414227/)
 
 ## 🙏 Acknowledgments
 - List any third-party libraries/tools used
@@ -143,4 +141,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - Mention any inspiration sources
 
 ---
-*Note: Replace placeholder text and URLs with your actual project information*
+
