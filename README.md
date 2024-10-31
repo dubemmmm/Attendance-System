@@ -82,7 +82,7 @@ python manage.py runserver
 ![Landing Page](screenshots/screenshot1.png)
 *Landing Page view*
 
-![Signup Screen](screenshots/screenshot2.png)
+![Signup Screen](screenshots/screenshot3.png)
 *Signup interface for students*
 
 ![Login Screen](screenshots/screenshot2.png)
@@ -99,7 +99,7 @@ python manage.py runserver
 </details>
 
 ## 🎥 Demo
-Watch the system in action: [Video Demo]([https://lnkd.in/gwTUp7GX](https://drive.google.com/file/d/1yBry3-pdASnnLViKi-QornvI2Z5mDlMc/view))
+Watch the system in action: [Video Demo](https://drive.google.com/file/d/1yBry3-pdASnnLViKi-QornvI2Z5mDlMc/view)
 
 ## 💼 Usage
 1. **Teacher Interface**
