@@ -92,7 +92,7 @@ python manage.py runserver
 </details>
 
 ## 🎥 Demo
-Watch the system in action: [Video Demo](https://lnkd.in/gwTUp7GX)
+Watch the system in action: [Video Demo]([https://lnkd.in/gwTUp7GX](https://drive.google.com/file/d/1yBry3-pdASnnLViKi-QornvI2Z5mDlMc/view))
 
 ## 💼 Usage
 1. **Teacher Interface**
