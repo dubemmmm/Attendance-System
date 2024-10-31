@@ -82,7 +82,7 @@ python manage.py runserver
 ![Landing Page](screenshots/screenshot1.png)
 *Landing Page view*
 
-![Signup Screen](screenshots/screenshot3.png)
+![Signup Screen](screenshots/screenshot4.png)
 *Signup interface for students*
 
 ![Login Screen](screenshots/screenshot2.png)
