@@ -131,8 +131,7 @@ Watch the system in action: [Video Demo](https://drive.google.com/file/d/1yBry3-
 
 
 ## 👥 Contact
-- GitHub: [Your GitHub Profile](https://lnkd.in/gw2XgxJf)
-- Email: [Your Email](onwuchulubachidubem@gmail.com)
+- Email: onwuchulubachidubem@gmail.com
 - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/chidubem-onwuchuluba-787414227/)
 
 ## 🙏 Acknowledgments
