@@ -79,13 +79,20 @@ python manage.py runserver
 <details>
 <summary>Click to view screenshots</summary>
 
-![Login Screen](screenshots/login.png)
+![Landing Page](screenshots/screenshot1.png)
+*Landing Page view*
+
+![Signup Screen](screenshots/screenshot2.png)
+*Signup interface for students*
+
+![Login Screen](screenshots/screenshot2.png)
+*Login interface for teachers*
+
+![New Course Screen](screenshots/screenshot3.png)
 *Login interface for users*
 
-![Dashboard](screenshots/dashboard.png)
-*Main dashboard view*
 
-![Attendance Marking](screenshots/attendance.png)
+![Attendance Marking](screenshots/2i.png)
 *Real-time attendance marking interface*
 
 [Add your screenshots in the screenshots folder of your repository]
