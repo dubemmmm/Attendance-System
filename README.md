@@ -88,6 +88,9 @@ python manage.py runserver
 ![Login Screen](screenshots/screenshot2.png)
 *Login interface for teachers*
 
+![Dashboard Screen](screenshots/screenshot5.png)
+*Dashboard interface for teachers*
+
 ![New Course Screen](screenshots/screenshot3.png)
 *Login interface for users*
 
