@@ -134,10 +134,4 @@ Watch the system in action: [Video Demo](https://drive.google.com/file/d/1yBry3-
 - Email: onwuchulubachidubem@gmail.com
 - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/chidubem-onwuchuluba-787414227/)
 
-## 🙏 Acknowledgments
-- List any third-party libraries/tools used
-- Credits to contributors
-- Mention any inspiration sources
-
----
 
